@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc6fab0-c442-4f27-85bb-d950fe67704c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/permissionsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/permissionsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" afterPath="$PROJECT_DIR$/prisma/schema.prisma" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/usersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/usersRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/authService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/authService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/containerPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/containerPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/usersController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/usersController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/pagesRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/create_table.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/reportsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/reportsRepository.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +53,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Project-Morphels-REACT.1.2&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -70,9 +63,32 @@
     &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2026.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;
   }
 }</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="npm run dev" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -90,6 +106,9 @@
       <workItem from="1785446111944" duration="1555000" />
       <workItem from="1785690500466" duration="4474000" />
       <workItem from="1785714489175" duration="3206000" />
+      <workItem from="1786285245736" duration="1398000" />
+      <workItem from="1786495628493" duration="2625000" />
+      <workItem from="1786498519161" duration="2825000" />
     </task>
     <servers />
   </component>

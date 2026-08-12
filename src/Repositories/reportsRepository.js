@@ -22,41 +22,44 @@ export class ReportsRepository {
     }
 
     async listAllWithLocalPermission (userId, searchTerm) {
-        return sql`SELECT r.*
-                         FROM reports r
-                                  JOIN branches b ON r.branch = b.id
-                                  JOIN users u ON u.branch = b.id
-                         WHERE u.id = ${userId} ${searchTerm ? sql`AND e.name ILIKE
-                                 ${searchTerm}`
+        return sql`SELECT r.*, ur.name as creator
+                   FROM reports r
+                            JOIN branches b ON r.branch = b.id
+                            JOIN users u ON u.branch = b.id
+                            LEFT JOIN users ur ON r.by = ur.id
+                   WHERE u.id = ${userId} 
+                       ${searchTerm ? sql`AND r.name ILIKE
+                           ${searchTerm}`
             : sql``}`;
     }
 
     async listAllWithSectorPermission (userId, searchTerm){
         return sql`
-            SELECT r.*
+            SELECT r.*, ur.name as creator
             FROM reports r
                      JOIN branches b ON r.branch = b.id
                      JOIN branches ub ON b.sector = ub.sector
                      JOIN users u ON u.branch = ub.id
+                     LEFT JOIN users ur ON r.by = ur.id
             WHERE u.id = ${userId};
             ${searchTerm
-                    ? sql`AND e.name ILIKE
+                    ? sql`AND r.name ILIKE
                     ${searchTerm}`
                     : sql``}
         `;
     }
 
     async listAllWithGlobalPermissions (userId, searchTerm){
-        return sql`SELECT r.*
+        return sql`SELECT r.*, ur.name as creator
                    FROM reports r
                             JOIN branches b ON r.branch = b.id
                             JOIN sectors s ON s.id = b.sector
                             JOIN sectors us ON s.institution = us.institution
                             JOIN branches ub ON us.id = ub.sector
                             JOIN users u ON u.branch = ub.id
+                            LEFT JOIN users ur ON r.by = ur.id
                    WHERE u.id = ${userId} ${searchTerm
-                           ? sql`AND e.name ILIKE
-                           ${searchTerm}`
+                           ? sql`AND r.name ILIKE ${searchTerm}`
                            : sql``}`;
     }
 
