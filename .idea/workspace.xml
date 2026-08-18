@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc6fab0-c442-4f27-85bb-d950fe67704c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/create_table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/reportsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/reportsRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/permissionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/permissionsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routes/permissionsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/permissionsRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +108,7 @@
       <workItem from="1786285245736" duration="1398000" />
       <workItem from="1786495628493" duration="2625000" />
       <workItem from="1786498519161" duration="2825000" />
+      <workItem from="1786798892028" duration="2889000" />
     </task>
     <servers />
   </component>
