@@ -3,15 +3,13 @@ import {sql} from "../../db.js";
 export class RolesRepository {
     async createRole (roleData, userId) {
         return await sql`INSERT INTO roles (name, description, institution)
-        VALUES(
-               ${roleData.name},
-               ${roleData.description},
+        VALUES (${roleData.name},
+                ${roleData.description},
                 (SELECT s.institution
                  FROM users u
                           JOIN branches b ON u.branch = b.id
                           JOIN sectors s ON b.sector = s.id
-                 WHERE u.id = ${userId}
-              )
+                 WHERE u.id = ${userId}))
         RETURNING id`
     }
 

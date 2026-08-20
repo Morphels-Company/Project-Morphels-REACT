@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/permissionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/permissionsController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routes/permissionsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/permissionsRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -109,6 +110,7 @@
       <workItem from="1786495628493" duration="2625000" />
       <workItem from="1786498519161" duration="2825000" />
       <workItem from="1786798892028" duration="2889000" />
+      <workItem from="1787226277349" duration="6533000" />
     </task>
     <servers />
   </component>

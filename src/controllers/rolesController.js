@@ -8,7 +8,7 @@ export class RolesController {
             if(!createRole){
                 return reply.status(303).send({error: "Role could not be created"})
             }
-            return reply.status(201).send({error:"Role already exists"})
+            return reply.status(201).send(createRole)
         }catch(err){
             console.log(err)
             return reply.status(500).send({error:"Something went wrong"})
