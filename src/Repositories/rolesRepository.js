@@ -31,7 +31,7 @@ export class RolesRepository {
                              RETURNING id`
     }
     async deleteRoles (roleId) {
-        return await sql`DELETE FROM expenses 
+        return await sql`DELETE FROM roles 
                         WHERE id = ${roleId}`
     }
 }

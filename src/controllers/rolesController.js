@@ -39,8 +39,9 @@ export class RolesController {
         }
     }
     delete = async (request, reply) => {
+        console.log(request.params.id)
         try{
-            const deleteRole = await this.repository.deleteRole(request.params.id)
+            const deleteRole = await this.repository.deleteRoles(request.params.id)
             if(!deleteRole){
                 return reply.status(404).send({error:"No delete role found"})
             }

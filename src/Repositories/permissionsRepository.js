@@ -5,7 +5,7 @@ export class PermissionsRepository {
         return await sql`
             INSERT INTO permissions (role_id, page_id, can_view, can_add, can_edit, can_delete, access_scope)
             SELECT
-                ${role_id}::uuid,
+                ${role_id},
                 u.page_id,
                 u.can_view,
                 u.can_add,
@@ -55,5 +55,12 @@ export class PermissionsRepository {
             WHERE role_id = ${role_id}
             GROUP BY role_id;
         `
+    }
+
+    async deletePermissionByRoleId(roleId) {
+        return await sql`DELETE FROM permissions 
+            WHERE role_id = ${roleId}
+        RETURNING id;
+`;
     }
 }
