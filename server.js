@@ -15,6 +15,7 @@ import reportsRoutes from "./src/routes/reportsRoutes.js";
 import cardsRoutes from "./src/routes/cardsRoutes.js";
 import dashBordRoutes from "./src/routes/dashBordRoutes.js";
 import permissionsRoutes from "./src/routes/permissionsRoutes.js";
+import pagesRoutes from "./src/routes/pagesRoutes.js";
 import containerPlugin from "./src/Services/containerPlugin.js";
 import {sql} from "./db.js";
 
@@ -53,6 +54,7 @@ server.register(reportsRoutes)
 server.register(cardsRoutes)
 server.register(dashBordRoutes)
 server.register(permissionsRoutes)
+server.register(pagesRoutes)
 
 
 // Middlewares

@@ -94,9 +94,17 @@ import { sql } from './db.js'
 //   console.log('tabela criada com sucesso  ')
 // })
 
-// sql`
-//     ALTER TABLE users ALTER COLUMN password TYPE VARCHAR(200)
-// `.then(() => {console.log('tabela criada com sucesso  ')})
+sql`
+    ALTER TABLE reports 
+        ALTER COLUMN "by" TYPE UUID USING "by"::uuid,
+        ADD CONSTRAINT fk_reports_users FOREIGN KEY ("by") REFERENCES users(id);
+`
+    .then(() => {
+        console.log('Coluna alterada para UUID e chave estrangeira criada com sucesso!');
+    })
+    .catch((error) => {
+        console.error('Erro ao tentar alterar a tabela:', error);
+    });
 
 // Create table "churchs"
 // await sql`
@@ -170,7 +178,7 @@ import { sql } from './db.js'
 // await sql`ALTER TABLE users
 //     RENAME COLUMN church TO branch`;
 
-await sql`ALTER TABLE expenses DROP COLUMN IF EXISTS institution`;
+// await sql`ALTER TABLE expenses DROP COLUMN IF EXISTS institution`;
 // await sql`CREATE type scope_level AS ENUM ('global', 'sector', 'local')`;
 
 // await sql`
