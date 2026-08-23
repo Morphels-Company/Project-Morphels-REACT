@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8dc6fab0-c442-4f27-85bb-d950fe67704c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/permissionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/permissionsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routes/permissionsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routes/permissionsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/companiesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/companiesRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repositories/membersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repositories/membersRepository.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +110,8 @@
       <workItem from="1786798892028" duration="2889000" />
       <workItem from="1787226277349" duration="6533000" />
       <workItem from="1787400052579" duration="3398000" />
+      <workItem from="1787405309531" duration="981000" />
+      <workItem from="1787520149790" duration="4387000" />
     </task>
     <servers />
   </component>
