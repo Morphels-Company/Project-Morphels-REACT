@@ -66,7 +66,7 @@ export class ExpensesRepository {
                             value       = ${data.value},
                             payment     = ${data.payment},
                             date        = ${data.date},
-                            branch      = (SELECT id FROM branches WHERE name = ${data.branch})
+                            branch      = ${data.branch}
                         WHERE id = ${id}
                         RETURNING id`;
     }
