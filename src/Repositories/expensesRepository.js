@@ -24,7 +24,7 @@ export class ExpensesRepository {
                          ${searchTerm ? sql`AND e.name ILIKE ${searchTerm}`
             : sql``}
                                ${dates ? sql`AND e.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                   ORDER BY e.date DESC
+                   ORDER BY e.date DESC LIMIT 999999
         `;
     }
 
@@ -41,7 +41,7 @@ export class ExpensesRepository {
                     ${searchTerm}`
                     : sql``}
             ${dates ? sql`AND e.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-            ORDER BY e.date DESC
+            ORDER BY e.date DESC LIMIT 999999
         `;
     }
 
@@ -59,7 +59,7 @@ export class ExpensesRepository {
                            ${searchTerm}`
                            : sql``}
                          ${dates ? sql`AND e.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                   ORDER BY e.date DESC
+                   ORDER BY e.date DESC LIMIT 999999
         `;
     }
 
