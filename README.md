@@ -1,4 +1,4 @@
-# Project-Morphels-REACT
+# Backend - Projeto M.O.R.P.H.E.L.S
 Frontend React para o sistema de gestão financeira de instituições do 3° sertor - Morphels
 
 ## 🚀 Tecnologias
