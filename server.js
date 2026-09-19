@@ -3,19 +3,19 @@ import cookie from '@fastify/cookie'
 import jwt from '@fastify/jwt'
 import cors from '@fastify/cors'
 
-import usersRoutes from "./src/routes/usersRoutes.js";
-import revenuesRoutes from "./src/routes/revenuesRoutes.js";
-import expensesRoutes from "./src/routes/expensesRoutes.js";
-import membersRoutes from "./src/routes/membersRoutes.js";
-import companiesRoutes from "./src/routes/companiesRoutes.js";
-import rolesRoutes from "./src/routes/rolesRoutes.js";
-import sectorsRoutes from "./src/routes/sectorsRoutes.js";
-import churchesRoutes from "./src/routes/branchesRoutes.js";
-import reportsRoutes from "./src/routes/reportsRoutes.js";
-import cardsRoutes from "./src/routes/cardsRoutes.js";
-import dashBordRoutes from "./src/routes/dashBordRoutes.js";
-import permissionsRoutes from "./src/routes/permissionsRoutes.js";
-import pagesRoutes from "./src/routes/pagesRoutes.js";
+import usersRoutes from "./src/modules/rh/routes/usersRoutes.js";
+import revenuesRoutes from "./src/modules/finance/routes/revenuesRoutes.js";
+import expensesRoutes from "./src/modules/finance/routes/expensesRoutes.js";
+import membersRoutes from "./src/modules/rh/routes/membersRoutes.js";
+import companiesRoutes from "./src/modules/rh/routes/companiesRoutes.js";
+import rolesRoutes from "./src/modules/manager/routes/rolesRoutes.js";
+import sectorsRoutes from "./src/modules/manager/routes/sectorsRoutes.js";
+import churchesRoutes from "./src/modules/manager/routes/branchesRoutes.js";
+import reportsRoutes from "./src/modules/finance/routes/reportsRoutes.js";
+import cardsRoutes from "./src/modules/rh/routes/cardsRoutes.js";
+import dashBordRoutes from "./src/modules/finance/routes/dashBordRoutes.js";
+import permissionsRoutes from "./src/modules/manager/routes/permissionsRoutes.js";
+import pagesRoutes from "./src/modules/global/routes/pagesRoutes.js";
 import containerPlugin from "./src/Services/containerPlugin.js";
 import {sql} from "./db.js";
 
@@ -76,54 +76,25 @@ server.addHook('preHandler', async (request, reply) => {
         return reply.status(401).send({ error: 'Invalid or expired token.' });
     }
 });
-server.decorate('checkPermissions', function (action) {
+
+const ACTIONS = new Set(['can_view', 'can_add', 'can_edit', 'can_delete']);
+
+server.decorate('checkPermissions', (action) => {
+    if (!ACTIONS.has(action)) throw new Error(`Ação inválida: ${action}`); // falha ao subir o servidor
     return async (request, reply) => {
-        try {
-            console.log("Bom dia")
+        const pageName = (request.routeOptions?.url ?? request.url.split('?')[0]).split('/')[1];
+        const [perm] = await sql`
+            SELECT p.can_view, p.can_add, p.can_edit, p.can_delete, p.access_scope
+            FROM users u
+                     JOIN permissions p ON p.role_id = u.designation
+                     JOIN pages pg ON pg.id = p.page_id
+            WHERE u.id = ${request.userID}
+              AND pg.name = ${pageName}`;
 
-            const userID = request.userID;
-
-            const rawPath = request.routerPath || request.url.split('?')[0];
-
-            const pageName = rawPath.split('/')[1];
-
-            console.log(pageName)
-
-            const permission = await sql`
-                SELECT ${action} as has_permission
-                FROM permissions p
-                JOIN users u ON p.role_id = u.designation
-                JOIN pages pg ON pg.id = p.page_id
-                WHERE u.id = ${userID}
-                  AND pg.name = ${pageName}
-                LIMIT 1
-            `;
-            const access_scope = await sql`
-                SELECT access_scope as scope
-                FROM permissions p
-                JOIN users u ON p.role_id = u.designation
-                JOIN pages pg ON pg.id = p.page_id
-                WHERE u.id = ${userID}
-                AND pg.name = ${pageName}
-            `
-
-            request.access_scope = access_scope[0].scope
-
-            if (permission.length === 0 || !permission[0].has_permission) {
-                return reply.status(403).send({
-                    message: "You do not have permission to execute this action."
-                });
-            }
-
-        } catch (e) {
-            console.error("ERRO NO SQL OU MIDDLEWARE:", e);
-
-            return reply.status(500).send({
-                message: 'Internal Server Error' + e
-            });
-        }
-    }
-})
+        if (!perm || perm[action] !== true) return reply.status(403).send({message: 'Forbidden'});
+        request.access_scope = perm.access_scope;
+    };
+});
 
 
 
