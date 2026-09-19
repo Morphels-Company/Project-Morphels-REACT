@@ -28,8 +28,8 @@ export class RevenuesController {
         try{
             const revenues = await this._validationService.validateAccessScope(this._revenuesRepository, request.access_scope, request.userID, request.query.search)
 
-            if (!revenues) {
-                return reply.status(200).send({message: 'Revenue does not exist'});
+            if (revenues.length === 0) {
+                return reply.status(400).send({message: 'Revenue does not exist'});
             }
             return reply.status(200).send(revenues)
         }catch(err){
@@ -65,7 +65,7 @@ export class RevenuesController {
     delete = async (request, reply) => {
         try {
             const deleteRevenue = await this._revenuesRepository.deleteRevenue(request.params.id, request.userID);
-            if (!deleteRevenue) {
+            if (deleteRevenue.length === 0) {
                 return reply.status(400).send({message: 'Revenue does not exist'});
             }
             return reply.status(200).send({message: 'Revenue deleted successfully'});

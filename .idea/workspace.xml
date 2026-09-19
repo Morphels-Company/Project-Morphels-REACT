@@ -5,95 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dc6fab0-c442-4f27-85bb-d950fe67704c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/decigion.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/guards.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/controller/dashBoardController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/controller/expensesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/controller/reportsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/controller/revenuesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/manifest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/routes/dashBordRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/routes/expensesRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/routes/reportsRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/finance/routes/revenuesRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/global/controllers/generalController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/global/controllers/pagesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/global/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/global/manifest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/global/routes/generalRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/global/routes/pagesRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/controllers/branchesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/controllers/permissionsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/controllers/rolesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/controllers/sectorsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/manifest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/routes/branchesRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/routes/permissionsRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/routes/rolesRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/manager/routes/sectorsRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/controllers/cardsController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/controllers/companiesController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/controllers/membersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/controllers/usersController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/manifest.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/routes/cardsRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/routes/companiesRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/routes/membersRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/rh/routes/usersRoutes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/teste_requisicao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/_shared.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/authenticate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/core/scopeFilter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/compose.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/create_table.js" beforeDir="false" afterPath="$PROJECT_DIR$/create_table.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myRequests.http" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/request.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/branchesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/repositories/branchesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/cardsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/repositories/cardsRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/companiesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/repositories/companiesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/expensesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/repositories/expensesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/membersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/repositories/membersRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/pagesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/global/repositories/pagesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/permissionsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/repositories/permissionsRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/reportsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/repositories/reportsRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/revenuesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/repositories/revenuesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/rolesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/repositories/rolesRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/sectorsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/repositories/sectorsRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repositories/usersRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/repositories/usersRepository.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/containerPlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/containerPlugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/branchesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/cardsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/companiesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/dashBoardController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/expensesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/generalController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/membersController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/pagesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/permissionsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/reportsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/revenuesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/rolesController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/sectorsController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/usersController.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/branchesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/cardsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/companiesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/dashBordRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/expensesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/generalRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/membersRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/pagesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/permissionsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/reportsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/revenuesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/rolesRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/sectorsRoutes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/usersRoutes.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/validateBranchWriteAccess.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/validateBranchWriteAccess.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/controller/expensesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/controller/expensesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/controller/reportsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/controller/reportsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/controller/revenuesController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/controller/revenuesController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/repositories/expensesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/repositories/expensesRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/repositories/reportsRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/repositories/reportsRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/repositories/revenuesRepository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/repositories/revenuesRepository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/routes/dashBordRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/routes/dashBordRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/routes/expensesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/routes/expensesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/routes/reportsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/routes/reportsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/finance/routes/revenuesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/finance/routes/revenuesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/global/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/global/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/global/routes/pagesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/global/routes/pagesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/manager/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/manager/routes/branchesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/routes/branchesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/manager/routes/permissionsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/routes/permissionsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/manager/routes/rolesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/routes/rolesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/manager/routes/sectorsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/manager/routes/sectorsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/rh/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/rh/routes/cardsRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/routes/cardsRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/rh/routes/companiesRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/routes/companiesRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/rh/routes/membersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/routes/membersRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/rh/routes/usersRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/rh/routes/usersRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +86,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Project-Morphels-REACT.1.2",
+    "git-widget-placeholder": "ALPHA-1.1",
     "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
     "last_opened_file_path": "C:/Users/Pichau/OneDrive/Documentos/Project-Morphels-REACT/src/modules/rh",
@@ -224,6 +168,7 @@
       <workItem from="1789846213289" duration="765000" />
       <workItem from="1789847379636" duration="692000" />
       <workItem from="1789848116480" duration="1987000" />
+      <workItem from="1789851137046" duration="9970000" />
     </task>
     <servers />
   </component>

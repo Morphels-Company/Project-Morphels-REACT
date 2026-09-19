@@ -16,7 +16,7 @@ export class ExpensesController {
             return reply.status(201).send({message: 'Successfully created expense'});
         }catch(err){
             if (err.statusCode){
-                return reply.status(err.statusCode).send({erro: err.message});
+                return reply.status(err.statusCode).send({error: err.message});
             }
             console.error(err);
             return reply.status(400).send({message: 'Something went wrong'});
@@ -63,7 +63,7 @@ export class ExpensesController {
     delete = async (request, reply) => {
         try{
             const deleteExpense = await this._expensesRepository.deleteExpenses(request.params.id, request.userID);
-            if (!deleteExpense){
+            if (deleteExpense.length === 0){
                 return reply.status(400).send({message: 'Expenses not found'});
             }
             return reply.status(200).send({message: 'Successfully deleted expense'});

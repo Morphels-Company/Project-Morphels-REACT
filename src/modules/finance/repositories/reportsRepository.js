@@ -76,6 +76,8 @@ export class ReportsRepository {
     }
     async deleteReports (expenseId) {
         return sql`DELETE FROM reports 
-                        WHERE id = ${expenseId}`;
+                        WHERE id = ${expenseId}
+                            RETURNING id
+                        `;
     }
 }

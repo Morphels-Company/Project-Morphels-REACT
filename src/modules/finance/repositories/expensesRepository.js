@@ -79,6 +79,7 @@ export class ExpensesRepository {
                                 JOIN branches ub ON b.institution = ub.institution
                                 JOIN users u ON u.branch = ub.id
                        WHERE u.id = ${userId}
+                       RETURNING id
                    )`;
     }
 }
