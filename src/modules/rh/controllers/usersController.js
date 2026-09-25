@@ -52,8 +52,8 @@ export class UsersController {
             const {loginEmail, loginPassword} = request.body;
             const user = await this.authService.login(loginEmail, loginPassword);
 
-            if (!user) {
-                return reply.status(401).send({message: 'Invalid login credentials'});
+            if (user === null) {
+                return reply.status(401).send({message: 'Email ou senha invalidos'});
             }
 
             const token = reply.server.jwt.sign({sub: user.id, user: user.email, branch: user.branch}, {expiresIn: "1h"});
@@ -72,7 +72,7 @@ export class UsersController {
 
         } catch (err) {
             console.log(err);
-            reply.status(503).send({message: "Error logging in"});
+            reply.status(503).send({message: "Email ou senha invalido"});
         }
 
     }

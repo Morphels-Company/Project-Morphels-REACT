@@ -73,7 +73,7 @@ export async function buildApp() {
             WHERE u.id = ${request.userID}
               AND pg.name = ${pageName}`;
 
-            if (!perm || perm[action] !== true) return reply.status(403).send({message: 'Forbidden'});
+            if (!perm || perm[action] !== true) return reply.status(403).send({message: 'Você não possui permissão para executar essa ação'});
             request.access_scope = perm.access_scope;
         };
     });

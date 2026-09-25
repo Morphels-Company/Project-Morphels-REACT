@@ -6,8 +6,8 @@ export class DashBoardController {
     get = async (request, reply) => {
         try{
             const financeData = await this.getFinanceData.getData(request.access_scope, request.userID, request.params.search, request.body);
-            if (!financeData) {
-                return reply.status(303)
+            if (financeData.length === 0) {
+                return reply.status(303).send({message: 'No finance data'});
             }
             console.log(financeData);
             return reply.status(203).send({
