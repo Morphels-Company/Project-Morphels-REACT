@@ -19,11 +19,12 @@ export class RevenuesRepository {
                          FROM revenues r
                                   JOIN branches b ON r.branch = b.id
                                   JOIN users u ON u.branch = b.id
-                         WHERE u.id = ${userId} 
-                         ${searchTerm ? sql`AND r.name ILIKE ${searchTerm}`
+                         WHERE u.id = ${userId}
+                       ${searchTerm ? sql`AND r.name ILIKE ${searchTerm}`
             : sql``}
                                ${dates ? sql`AND r.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                         `;
+                   ORDER BY r.date DESC LIMIT 999999
+        `;
     }
 
     async listAllWithSectorPermission (userId, searchTerm, dates = null){
@@ -33,11 +34,13 @@ export class RevenuesRepository {
                      JOIN branches b ON r.branch = b.id
                      JOIN branches ub ON b.sector = ub.sector
                      JOIN users u ON u.branch = ub.id
-            WHERE u.id = ${userId} ${searchTerm
+            WHERE u.id = ${userId}
+                ${searchTerm
                     ? sql`AND r.name ILIKE
                     ${searchTerm}`
                     : sql``}
                   ${dates ? sql`AND r.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
+            ORDER BY r.date DESC LIMIT 999999
         `;
     }
 
@@ -54,7 +57,8 @@ export class RevenuesRepository {
                    WHERE u.id = ${userId} 
                        ${searchTerm ? sql`AND r.name ILIKE ${searchTerm}` : sql``}
                        ${dates ? sql`AND r.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                   `;
+                   ORDER BY r.date DESC LIMIT 999999
+        `;
     }
 
     async listGlobalSumValuesByYear (userId){

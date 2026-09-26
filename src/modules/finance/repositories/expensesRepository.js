@@ -20,11 +20,12 @@ export class ExpensesRepository {
                          FROM expenses e
                                   JOIN branches b ON e.branch = b.id
                                   JOIN users u ON u.branch = b.id
-                         WHERE u.id = ${userId} 
+                         WHERE u.id = ${userId}
                          ${searchTerm ? sql`AND e.name ILIKE ${searchTerm}`
             : sql``}
                                ${dates ? sql`AND e.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                         `;
+                   ORDER BY e.date DESC LIMIT 999999
+        `;
     }
 
     async listAllWithSectorPermission (userId, searchTerm, dates = null){
@@ -40,6 +41,7 @@ export class ExpensesRepository {
                     ${searchTerm}`
                     : sql``}
             ${dates ? sql`AND e.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
+            ORDER BY e.date DESC LIMIT 999999
         `;
     }
 
@@ -51,12 +53,14 @@ export class ExpensesRepository {
                             JOIN sectors us ON s.institution = us.institution
                             JOIN branches ub ON us.id = ub.sector
                             JOIN users u ON u.branch = ub.id
-                   WHERE u.id = ${userId} ${searchTerm
+                   WHERE u.id = ${userId}
+                       ${searchTerm
                            ? sql`AND e.name ILIKE
                            ${searchTerm}`
                            : sql``}
                          ${dates ? sql`AND e.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                   `;
+                   ORDER BY e.date DESC LIMIT 999999
+        `;
     }
 
     async updateExpenses(data, id){
