@@ -45,8 +45,6 @@ export class RevenuesRepository {
     }
 
     async listAllWithGlobalPermissions (userId, searchTerm, dates = null){
-        console.log(dates)
-        console.log(userId)
         return sql`SELECT r.*, SUM(r.value) OVER() as revenues_sum
                    FROM revenues r
                             JOIN branches b ON r.branch = b.id
@@ -95,7 +93,8 @@ export class RevenuesRepository {
                                 JOIN branches ub ON b.institution = ub.institution
                                 JOIN users u ON u.branch = ub.id
                        WHERE u.id = ${userId}
-                   RETURNING id
-                   )`;
+                       )
+                   RETURNING r.id
+                   `;
     }
 }

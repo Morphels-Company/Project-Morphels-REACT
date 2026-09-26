@@ -40,8 +40,9 @@ export class SectorsRepository{
                         where id = ${id}
                         RETURNING id`
     }
-    async deleteSector (expenseId) {
-        return await sql`DELETE FROM sectors e
-                        WHERE id = ${expenseId}`
+    async deleteSector (sectorId) {
+        return await sql`DELETE FROM sectors
+                        WHERE id = ${sectorId}
+                        RETURNING id`
     }
 }

@@ -77,13 +77,12 @@ export class ExpensesRepository {
     async deleteExpenses (expenseId, userId) {
         return sql`DELETE FROM expenses e
                    WHERE e.id = ${expenseId}
-                     AND e.branch IN (
-                       SELECT b.id
-                       FROM branches b
-                                JOIN branches ub ON b.institution = ub.institution
-                                JOIN users u ON u.branch = ub.id
-                       WHERE u.id = ${userId}
+                     AND e.branch IN (SELECT b.id
+                                      FROM branches b
+                                               JOIN branches ub ON b.institution = ub.institution
+                                               JOIN users u ON u.branch = ub.id
+                                      WHERE u.id = ${userId})
                        RETURNING id
-                   )`;
+                   `;
     }
 }

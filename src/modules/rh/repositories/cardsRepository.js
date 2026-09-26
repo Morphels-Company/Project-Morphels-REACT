@@ -56,17 +56,25 @@ export class CardsRepository {
 
     async updateCard(data, id){
         return await sql`UPDATE members 
-                        SET code      = ${data.member},
-                            member        = ${data.type},
-                            issue_date         = ${data.value},
+                        SET code        = ${data.member},
+                            member      = ${data.type},
+                            issue_date  = ${data.value},
                             payment     = ${data.payment},
                             date        = ${data.date},
-                            branch      = (SELECT id FROM branches WHERE name = ${data.branch})
+                            branch      = ${data.branch}
                         WHERE id = ${id}
                         RETURNING id`
     }
-    async deleteCard (cardId) {
-        return await sql`DELETE FROM cards
-                        WHERE id = ${cardId}`
+    async deleteCard (cardId, userId) {
+        return await sql`DELETE FROM cards c
+                         WHERE c.id = ${cardId}
+                           AND c.branch IN (
+                             SELECT b.id
+                             FROM branches b
+                                      JOIN branches ub ON b.institution = ub.institution
+                                      JOIN users u ON u.branch = ub.id
+                             WHERE u.id = ${userId}
+                         )
+                             RETURNING r.id`
     }
 }

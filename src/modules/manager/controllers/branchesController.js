@@ -6,7 +6,7 @@ export class BranchesController {
     create = async (request, reply) =>{
         try {
             const branchCreate = await this.branchesRepository.createBranch(request.body, request.userID)
-            if (!branchCreate){
+            if (branchCreate.length === 0) {
                 return reply.status(303).send({message: `Branch could not be created.`})
             }
             return reply.status(200).send({message: `Branch created successfully.`})
@@ -18,7 +18,7 @@ export class BranchesController {
     list = async (request, reply) =>{
         try{
             const branches = await this.scopeValidationService.validateAccessScope(this.branchesRepository, request.access_scope, request.userID, request.query.search)
-            if (!branches) {
+            if (branches.length === 0) {
                 return reply.status(404).send({message: `Branch not found`})
             }
             return reply.status(200).send(branches)
@@ -29,8 +29,8 @@ export class BranchesController {
     }
     update = async (request, reply) =>{
         try{
-            const branchUpdate = await this.branchesRepository.updateBranch(request.body, request.params.id)
-            if (!branchUpdate){
+            const branchUpdate = await this.branchesRepository.updateBranch(request.body, request.params.id, request.userID)
+            if (branchUpdate.length === 0){
                 return reply.status(404).send({message: `Branch not found`})
             }
             return reply.status(200).send({message: `Branch updated successfully.`})
@@ -42,7 +42,7 @@ export class BranchesController {
     delete = async (request, reply) =>{
         try{
             const branchDeleted = await this.branchesRepository.deleteBranch(request.params.id)
-            if (!branchDeleted){
+            if (branchDeleted.length === 0){
                 return reply.status(404).send({message: `Branch not found`})
             }
             return reply.status(200).send({message: `Branch deleted successfully.`})
