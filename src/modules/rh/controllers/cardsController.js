@@ -7,48 +7,48 @@ export class CardsController {
     create = async (request, reply) => {
         try{
             const cardCreate = await this.cardsRepository.createCards(request.body, request.userID)
-            if (!cardCreate) {
-                return reply.status(303).send({message:"Card could not be created"})
+            if (cardCreate.length === 0) {
+                return reply.status(303).send({message:"Não foi possível registrar o cartão"})
             }
-            return reply.status(201).send({message:"Card created"})
+            return reply.status(201).send({message:"Cartão criado com sucesso"})
         }catch(err){
-            return reply.status(400).send({message:"Card not found"})
+            return reply.status(500).send({message:"Não foi possível registrar o cartão por um erro interno"})
         }
     }
     list = async (request, reply) => {
         try{
-            const cards = await this.validationService.validateAccessScope(request.access_scope, request.userID, request.query.search)
-            if (!cards) {
-                return reply.status(404).send({message:"Not Found"})
+            const cards = await this.validationService.validateAccessScope(this.cardsRepository, request.access_scope, request.userID, request.query.search)
+            if (cards.length === 0) {
+                return reply.status(401).send({message:"Não foi encontrar nenhum cartão"})
             }
-            return reply.status(200).send({message:"List of cards"})
+            return reply.status(200).send(cards)
         }catch(err){
             console.log(err)
-            return reply.status(400).send({message:"Card not found"})
+            return reply.status(500).send({message:"Não foi encontrar nenhum cartão por um erro interno"})
         }
     }
     update = async (request, reply) => {
         try{
             const cardUpdate = await this.cardsRepository.updateCards(request.body, request.params.id)
-            if (!cardUpdate) {
-                return reply.status(404).send({message:"Not Found"})
+            if (cardUpdate.length === 0) {
+                return reply.status(303).send({message:"Não foi atualizar os dados cartão"})
             }
-            return reply.status(200).send({message:"Updated successfully"})
+            return reply.status(201).send({message:"Updated successfully"})
         }catch(err){
             console.log(err)
-            return reply.status(400).send({message:"Card not found"})
+            return reply.status(501).send({message:"Não foi atualizar os dados cartão por um erro interno"})
         }
     }
     delete = async (request, reply) => {
         try{
             const cardDelete = await this.cardsRepository.deleteCards(request.params.id)
-            if (!cardDelete) {
-                return reply.status(404).send({message:"Not Found"})
+            if (cardDelete.length === 0) {
+                return reply.status(401).send({message:"Não foi possível deletar o cartão"})
             }
-            return reply.status(200).send({message:"Deleted successfully"})
+            return reply.status(200).send({message:"Cartão deletado com sucesso"})
         }catch(err){
             console.log(err)
-            return reply.status(400).send({message:"Card not found"})
+            return reply.status(400).send({message:"Não foi possível deletar o cartão por um erro interno"})
         }
     }
 }

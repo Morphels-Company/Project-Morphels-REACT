@@ -16,49 +16,49 @@ export class PermissionsController {
 
         try{
             const permissions = await this.permissionsRepository.createPermissions(role_id, page_id, can_view, can_add, can_edit, can_delete, access_scope);
-            if (permissions.length < 0){
-                return reply.status(403).send({message: "Could not create permissions"});
+            if (permissions.length === 0){
+                return reply.status(303).send({message: "Não foi possível criar as permissões"});
             }
-            return reply.status(201).send({message: "Permission created successfully."});
+            return reply.status(201).send({message: "Permissões criadas com sucesso"});
         }catch(err){
             console.error(err);
-            return reply.status(500).send({message: "Could not create permissions"});
+            return reply.status(500).send({message: "Não foi possível criar as permissões por um erro interno"});
         }
     }
     listViewPermissions = async (request, reply)=> {
        try{
            const permissions = await this.permissionsRepository.listPagesViewPermissions(request.userID)
-           if(permissions.length < 0){
-               return reply.status(400).send({message:'No permissions found.'})
+           if(permissions.length === 0){
+               return reply.status(401).send({message:'Não foi possível localizar as permissões'})
            }
            return reply.status(200).send(permissions)
        } catch (error) {
            console.log(error)
-           return reply.status(500).send({message:error.message})
+           return reply.status(500).send({message: "Não foi possível localizar as permissões por um erro interno"})
        }
     }
     listAllPermissions = async (request, reply)=> {
         try{
             const permissions = await this.permissionsRepository.listAllPermissionsByRole(request.body.role_id)
-            if(permissions.length < 0){
-                return reply.status(400).send({message:'No permissions found.'})
+            if(permissions.length === 0){
+                return reply.status(400).send({message:'Não foi possível localizar as permissões'})
             }
             return reply.status(200).send(permissions)
         }catch(error){
             console.log(error)
-            return reply.status(500).send({message:error.message})
+            return reply.status(500).send({message:'Não foi possível localizar as permissões por um erro interno'})
         }
     }
     listNumberOfPagesWithPermissions = async (request, reply)=> {
         try {
             const total_count_permissions = await this.permissionsRepository.countPagesPermissions(request.body.role_id)
-            if(total_count_permissions > 0){
-                return reply.status(200).send({message:'Number of pages found'})
+            if(total_count_permissions === 0){
+                return reply.status(302).send({message:'Não foi possível litar o número de páginas com permissão'})
             }
             return reply.status(200).send(total_count_permissions)
         }catch(error){
             console.log(error)
-            return reply.status(500).send({message:error.message})
+            return reply.status(500).send({message:'Não foi possível litar o número de páginas com permissão por um erro interno'})
         }
     }
 
@@ -66,13 +66,13 @@ export class PermissionsController {
         try{
             const { id } = request.params
             const permissions = await this.permissionsRepository.deletePermissionByRoleId(id)
-            if(permissions.length < 0){
-                return reply.status(400).send({message:'Permission not found.'})
+            if(permissions.length === 0){
+                return reply.status(401).send({message:'Não foi possível deletar as permissões'})
             }
-            return reply.status(200).send({message: "Permission deleted successfully."})
+            return reply.status(200).send({message: "Permissões deletadas com sucesso"})
         }catch (error) {
             console.log(error)
-            return reply.status(500).send({message:error.message})
+            return reply.status(500).send({message:'Não foi possível deletar as permissões por um erro interno'})
         }
 
     }

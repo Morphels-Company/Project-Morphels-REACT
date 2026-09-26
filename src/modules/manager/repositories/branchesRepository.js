@@ -12,7 +12,7 @@ export class BranchesRepository {
                           JOIN branches b ON u.branch = b.id
                           JOIN sectors s ON b.sector = s.id
                  WHERE u.id = ${userId}
-              )
+              ))
         RETURNING id`;
     }
 
@@ -57,14 +57,23 @@ export class BranchesRepository {
     `;
     }
 
-    async updateBranch (data){
-        return sql`UPDATE branches
-                         SET name        = ${data.name},
-                             description = ${data.description},
+    async updateBranch (branch_data, branchId, userId) {
+        return sql`UPDATE branches         
+                         SET name           = ${branch_data.name},
+                             sector         = ${branch_data.sector},
+                             branch         = ${branch_data.owner},
+                             institution    = (SELECT s.institution
+                             FROM users u
+                             JOIN branches b ON u.branch = b.id
+                             JOIN sectors s ON b.sector = s.id
+                             WHERE u.id = ${userId}
+                             )
+                         WHERE id = ${branchId}
                         RETURNING id`;
     }
-    async deleteBranch (roleId) {
-        return sql`DELETE FROM expenses 
-                        WHERE id = ${roleId}`;
+    async deleteBranch (branchId) {
+        return sql`DELETE FROM branches 
+                        WHERE id = ${branchId}
+                        RETURNING id`;
     }
 }
