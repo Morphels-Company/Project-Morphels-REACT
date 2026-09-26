@@ -6,15 +6,20 @@ export class AuthService {
     }
 
     async login(email, password) {
+        let isValidPassword
+
         const user = await this.userRepository.findUserByEmail(email);
-        const isValidPassword = await bcrypt.compare(password, user.password);
+        console.log(user)
+        if (user !== undefined && user !== null) {
+            isValidPassword = await bcrypt.compare(password, user?.password);
+        }
 
         if (!user || !isValidPassword) {
-            throw new Error("Invalid email or password");
+            console.error("Invalid email or password");
         }
 
         await this.userRepository.updateLastAccess(email);
-        return user;
+        return user ? user : null
     }
 
     async register(data) {

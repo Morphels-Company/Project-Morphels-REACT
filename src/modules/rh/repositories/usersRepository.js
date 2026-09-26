@@ -1,0 +1,74 @@
+import {sql} from "../../../../db.js";
+
+export class UsersRepository {
+    async findUserByEmail(email) {
+        const [user] = await sql`SELECT *
+                                 FROM users
+                                 WHERE email = ${email}`;
+        return user;
+    }
+
+    async findUserById(userId) {
+        const [user] = await sql`SELECT * 
+                                FROM users
+                                WHERE id = ${userId}`;
+        return user;
+    }
+
+    async createUser(userData) {
+        return sql`INSERT INTO users (name, email, password, phone_number, designation, sector, branch,
+                                      last_access, sing_up_date)
+                   VALUES (${userData.name},
+                           ${userData.email},
+                           ${userData.password},
+                           ${userData.phone_number},
+                           ${userData.designation},
+                           ${userData.sector},
+                           ${userData.branch},
+                           NOW(),
+                           NOW()) RETURNING id;
+        `;
+    }
+
+    async listAllWithRoles(userId) {
+        return sql`SELECT
+                       u.name,
+                       u.email,
+                       u.phone_number,
+                       r.name AS designation_name,
+                       u.last_access,
+                       u.sing_up_date
+                   FROM users u
+                            JOIN branches b ON b.id = u.branch
+                            JOIN branches ub ON ub.institution = b.institution
+                            JOIN users uu ON ub.id = uu.branch
+                            LEFT JOIN roles r ON u.designation = r.id
+                   WHERE uu.id = ${userId}
+        `;
+    }
+
+    async updateLastAccess(email) {
+        await sql`UPDATE users
+                  SET last_access = ${new Date()}
+                  WHERE email = ${email};`
+    }
+
+    async updateUser(data, id) {
+        return sql`UPDATE users
+                         SET name         = ${data.name},
+                             email        = ${data.email},
+                             password     = ${data.password},
+                             phone_number = ${data.phone_number},
+                             branch       = ${data.branch},
+                             sector       = ${data.sector}
+                         WHERE id = ${id} 
+                         RETURNING id
+                             `;
+    }
+
+    async deleteUser(id) {
+        return sql`DELETE
+                   FROM users
+                   WHERE id = ${id} RETURNING id`;
+    }
+}

@@ -1,17 +1,17 @@
 import fp from 'fastify-plugin'
 // REPOSITORIES IMPORTS
-import { RevenuesRepository } from '../Repositories/revenuesRepository.js'
-import { ExpensesRepository } from '../Repositories/expensesRepository.js'
-import { BranchesRepository } from '../Repositories/branchesRepository.js'
-import { SectorsRepository } from '../Repositories/sectorsRepository.js'
-import { CardsRepository } from "../Repositories/cardsRepository.js";
-import { CompaniesRepository } from '../Repositories/companiesRepository.js'
-import { MembersRepository } from "../Repositories/membersRepository.js";
-import { ReportsRepository } from "../Repositories/reportsRepository.js";
-import { RolesRepository } from "../Repositories/rolesRepository.js";
-import { UsersRepository } from "../Repositories/usersRepository.js";
-import { PermissionsRepository } from "../Repositories/permissionsRepository.js";
-import { PagesRepository} from "../Repositories/pagesRepository.js";
+import { RevenuesRepository } from '../modules/finance/repositories/revenuesRepository.js'
+import { ExpensesRepository } from '../modules/finance/repositories/expensesRepository.js'
+import { BranchesRepository } from '../modules/manager/repositories/branchesRepository.js'
+import { SectorsRepository } from '../modules/manager/repositories/sectorsRepository.js'
+import { CardsRepository } from "../modules/rh/repositories/cardsRepository.js";
+import { CompaniesRepository } from '../modules/rh/repositories/companiesRepository.js'
+import { MembersRepository } from "../modules/rh/repositories/membersRepository.js";
+import { ReportsRepository } from "../modules/finance/repositories/reportsRepository.js";
+import { RolesRepository } from "../modules/manager/repositories/rolesRepository.js";
+import { UsersRepository } from "../modules/rh/repositories/usersRepository.js";
+import { PermissionsRepository } from "../modules/manager/repositories/permissionsRepository.js";
+import { PagesRepository} from "../modules/global/repositories/pagesRepository.js";
 
 //  SERVICES IMPORTS
 import { AuthService } from "./authService.js";
@@ -22,19 +22,19 @@ import { GetFinanceData } from "./getFinanceData.js";
 import { ValidateBranchWriteAccess } from "./validateBranchWriteAccess.js";
 
 //  CONTROLLERS IMPORTS
-import { RevenuesController } from '../controllers/revenuesController.js'
-import { ExpensesController } from '../controllers/expensesController.js'
-import { BranchesController } from '../controllers/branchesController.js'
-import { SectorsController } from '../controllers/sectorsController.js'
-import { CardsController } from "../controllers/cardsController.js";
-import { CompaniesController } from '../controllers/companiesController.js'
-import { MembersController } from "../controllers/membersController.js";
-import { ReportsController } from "../controllers/reportsController.js";
-import { RolesController } from "../controllers/rolesController.js";
-import { UsersController } from "../controllers/usersController.js";
-import { DashBoardController } from "../controllers/dashBoardController.js";
-import { PermissionsController } from "../controllers/permissionsController.js";
-import { PagesController } from "../controllers/pagesController.js";
+import { RevenuesController } from '../modules/finance/controller/revenuesController.js'
+import { ExpensesController } from '../modules/finance/controller/expensesController.js'
+import { BranchesController } from '../modules/manager/controllers/branchesController.js'
+import { SectorsController } from '../modules/manager/controllers/sectorsController.js'
+import { CardsController } from "../modules/rh/controllers/cardsController.js";
+import { CompaniesController } from '../modules/rh/controllers/companiesController.js'
+import { MembersController } from "../modules/rh/controllers/membersController.js";
+import { ReportsController } from "../modules/finance/controller/reportsController.js";
+import { RolesController } from "../modules/manager/controllers/rolesController.js";
+import { UsersController } from "../modules/rh/controllers/usersController.js";
+import { DashBoardController } from "../modules/finance/controller/dashBoardController.js";
+import { PermissionsController } from "../modules/manager/controllers/permissionsController.js";
+import { PagesController } from "../modules/global/controllers/pagesController.js";
 
 async function containerPlugin(server, options) {
     // INSTANCE REPOSITORIES
