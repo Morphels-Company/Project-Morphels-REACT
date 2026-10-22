@@ -18,7 +18,7 @@ export class RolesController {
         try{
             const roles = await this.repository.listRoles(request.userID)
             if (roles.length === 0) {
-                return reply.status(401).send({message:"Não foi possível localizar nenhuma permissão"})
+                return reply.status(201).send({message:"Não foi possível localizar nenhuma permissão"})
             }
             return reply.status(201).send({roles})
         }catch(err){
