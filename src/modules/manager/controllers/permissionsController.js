@@ -29,7 +29,7 @@ export class PermissionsController {
        try{
            const permissions = await this.permissionsRepository.listPagesViewPermissions(request.userID)
            if(permissions.length === 0){
-               return reply.status(401).send({message:'Não foi possível localizar as permissões'})
+               return reply.status(201).send({message:'Não foi possível localizar as permissões'})
            }
            return reply.status(200).send(permissions)
        } catch (error) {
@@ -41,7 +41,7 @@ export class PermissionsController {
         try{
             const permissions = await this.permissionsRepository.listAllPermissionsByRole(request.body.role_id)
             if(permissions.length === 0){
-                return reply.status(400).send({message:'Não foi possível localizar as permissões'})
+                return reply.status(201).send({message:'Não foi possível localizar as permissões'})
             }
             return reply.status(200).send(permissions)
         }catch(error){
