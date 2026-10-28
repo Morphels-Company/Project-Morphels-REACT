@@ -3,6 +3,7 @@ import branchesRoutes from './routes/branchesRoutes.js'
 import permissionsRoutes from './routes/permissionsRoutes.js'
 import rolesRoutes from './routes/rolesRoutes.js'
 import sectorsRoutes from './routes/sectorsRoutes.js'
+import institutionsRoutes from "./routes/institutionsRoutes.js";
 
 import { requireModuleEnabled } from '../../core/guards.js';
 
@@ -14,4 +15,5 @@ export async function managerModule(server, options) {
     server.register(permissionsRoutes, { prefix: '/permissions' });
     server.register(rolesRoutes, { prefix: '/roles' });
     server.register(sectorsRoutes, { prefix: '/sectors' });
+    server.register(institutionsRoutes, { prefix: '/institutions' });
 }

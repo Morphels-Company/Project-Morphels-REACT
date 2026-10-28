@@ -17,7 +17,7 @@ export async function buildApp() {
 
     // CORS primeiro
     await server.register(cors, {
-        origin: process.env.ORING,
+        origin: true,
         methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
         allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
         credentials: true
