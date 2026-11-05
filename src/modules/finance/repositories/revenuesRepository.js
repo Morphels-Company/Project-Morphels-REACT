@@ -23,7 +23,7 @@ export class RevenuesRepository {
                        ${searchTerm ? sql`AND r.name ILIKE ${searchTerm}`
             : sql``}
                                ${dates ? sql`AND r.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                   ORDER BY r.date DESC LIMIT 999999
+                   ORDER BY r.date DESC, r.id DESC LIMIT 999999
         `;
     }
 
@@ -40,7 +40,7 @@ export class RevenuesRepository {
                     ${searchTerm}`
                     : sql``}
                   ${dates ? sql`AND r.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-            ORDER BY r.date DESC LIMIT 999999
+            ORDER BY r.date DESC, r.id DESC LIMIT 999999
         `;
     }
 
@@ -55,7 +55,7 @@ export class RevenuesRepository {
                    WHERE u.id = ${userId} 
                        ${searchTerm ? sql`AND r.name ILIKE ${searchTerm}` : sql``}
                        ${dates ? sql`AND r.date BETWEEN ${dates.start_date} AND ${dates.end_date}` : sql``}
-                   ORDER BY r.date DESC LIMIT 999999
+                   ORDER BY r.date DESC, r.id DESC LIMIT 999999
         `;
     }
 
