@@ -15,7 +15,7 @@ export class AuthService {
         }
 
         if (!user || !isValidPassword) {
-            console.error("Invalid email or password");
+            return null
         }
 
         await this.userRepository.updateLastAccess(email);
