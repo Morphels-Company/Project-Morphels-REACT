@@ -39,6 +39,13 @@ export async function buildApp() {
     await server.register(cookie)
     await server.register(containerPlugin)
 
+    server.addHook('onRequest', async (request, reply) => {
+        if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method) && request.url !== '/users/login'
+            && request.headers['x-requested-with'] !== 'fetch') {
+            return reply.status(403).send({ message: 'Forbidden' });
+        }
+    });
+
     // Middlewares
     server.addHook('preHandler', async (request, reply) => {
         if (request.method === 'OPTIONS') {
